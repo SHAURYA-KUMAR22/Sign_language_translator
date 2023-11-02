@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Partition</title>
+    <style>
+        /* Container for the two columns */
+        .container {
+            display: flex;
+        }
+
+        /* Style for the left column (image) */
+        .left-column {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column; /* Display contents vertically */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .image {
+            max-width: 50%; /* Image takes up half the width of the left column */
+            height: auto; /* Maintains the aspect ratio */
+        }
+
+        /* Style for the right column (text box) */
+        .right-column {
+            flex: 2;
+            padding: 20px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Centering text in the right column */
+        .text-box {
+            text-align: center;
+        }
+
+        .content-box {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-box" style="color: rgb(100, 238, 130);">{{ result }} is verified user</h1>
+    <div class="container">
+        <div class="left-column">
+            <h1> {{ result2 }} Translator started</h1>
+            <img clas="image" src="{{ url_for('video2') }}"/>
+        </div>
+        <div class="right-column">
+            <div class="text-box">
+                <h1>User information</h1>
+                <h4>{{ data }}</h4>
+            </div>
+            <!-- Add a box to display dynamic content -->
+            <div class="content-box">
+                <p>translated words to be appear here</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <h1 style=color:red"></h1>
+
+<body>
+    {{ result }} is verified user
+    <div>
+        <h1>User information</h1>
+        <h4>{{ data }}</h4>
+    </div>
+    <div>
+        <h1> {{ result2 }} Translator started</h1>
+        <img src="{{ url_for('video') }}" width="75%"/>
+    </div>
+
+    <!-- <form method="get" action="{{url_for('index')}}">
+        <button> Back to Home </button>
+    </form> -->
+<!-- 
+    <form action="/translate" method="post">
+        <label for="language" value="sign_lang">Enter your name:</label><br>
+        <input type="text" id="language" name="language" value="sign_lang"><br>
+        <input type="submit" value="start translation"> -->
+    </form>
+</body>
+</html> -->

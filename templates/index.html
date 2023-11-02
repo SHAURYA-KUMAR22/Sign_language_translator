@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Language Translator</title>
+    <style>
+        /* Reset some default styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation menu styling */
+        nav {
+            background-color: #2c3e50;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Container for the image */
+        .image-container {
+            background-image: url('photos\bill.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 300px; /* Adjust the height as needed */
+            margin-top: 20px; /* Adjust the margin to create space between buttons and image */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Sign Language Translator</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('registration') }}">Register</a></li>
+        </ul>
+    </nav>
+    <!-- Image container below the buttons -->
+    <div class="image-container"></div>
+</body>
+</html>

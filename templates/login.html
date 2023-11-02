@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centered Image with Form</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .form-container {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 0;
+        color: #333;
+      }
+
+      p {
+        font-size: 18px;
+        color: #555;
+      }
+
+      .custom-input {
+        padding: 10px;
+        width: 300px;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        margin-bottom: 10px;
+        transition: border-color 0.3s ease-in-out;
+      }
+
+      .custom-input:focus {
+        border-color: #ff6600;
+      }
+
+      .custom-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .custom-button:hover {
+        background-color: #ff6600;
+      }
+    </style>
+  </head>
+  <body>
+    {% if show_warning %}
+    <div id="warning">
+      <h1 style="color: red">Login Failed</h1>
+      <h1 class="text-box" style="color: rgb(237, 123, 123)">
+        {{ result }} is not a verified user
+      </h1>
+    </div>
+    <script>
+      // Show the warning div initially
+      var warningDiv = document.getElementById("warning");
+      warningDiv.style.display = "block";
+
+      // After 2-3 seconds, hide the warning div
+      setTimeout(function () {
+        warningDiv.style.display = "none";
+      }, 2000); // Adjust the timeout value as needed (in milliseconds)
+    </script>
+    {% endif %}
+
+    <h1>Welcome to Sign Language Translator</h1>
+    <p><em>First, verify yourself</em></p>
+    <img src="{{ url_for('video') }}" />
+    <div class="form-container">
+      <form action="/submit" method="post">
+        <!-- Replace "#" with your form action URL -->
+        <label for="yourname" value="shaurya">Enter your name:</label><br />
+        <input type="text" class="custom-input" id="yourname" name="yourname" />
+        <input type="submit" class="custom-button" value="Verify" />
+      </form>
+    </div>
+  </body>
+</html>
