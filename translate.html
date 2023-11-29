@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin: 40px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Translation Results</h1>
+    {% if word %}
+        <p>{{ word }}</p>
+        <audio controls>
+            <source src="{{ url_for('audio', filename=audio_path) }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% else %}
+        <p class="error-message">No translation available.</p>
+    {% endif %}
+</body>
+</html>
